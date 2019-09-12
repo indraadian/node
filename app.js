@@ -1,12 +1,18 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 const productsRouts = require('./api/routes/products'); 
 const ordersRouts = require('./api/routes/orders'); 
 
-app.use(morgan('dev'));
+mongoose.connect('mongodb+srv://indraa:'+ process.env.MONGO_ATLAS_PW +'@node-rest-shop-dtcc7.mongodb.net/test?retryWrites=true&w=majority', {
+    // useMongoClient: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
+app.use(morgan('dev'));
 app.use('/products', productsRouts);
 app.use('/orders', ordersRouts);
 
