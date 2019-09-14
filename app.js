@@ -4,10 +4,10 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const productsRouts = require('./api/routes/products'); 
-const ordersRouts = require('./api/routes/orders'); 
+const productsRouts = require('./api/routes/products');
+const ordersRouts = require('./api/routes/orders');
 
-mongoose.connect('mongodb+srv://indraa:'+ process.env.MONGO_ATLAS_PW +'@node-rest-shop-dtcc7.mongodb.net/test?retryWrites=true&w=majority', 
+mongoose.connect('mongodb+srv://indraa:'+ process.env.MONGO_ATLAS_PW +'@node-rest-shop-dtcc7.mongodb.net/test?retryWrites=true&w=majority',
 {
     // useMongoClient: true,
     useNewUrlParser: true,
