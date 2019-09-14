@@ -142,7 +142,7 @@ router.delete('/:productsId', (req,res,next)=>{
         .exec()
         .then(result =>{
             res.status(200).json({
-                message: 'Products is deled',
+                message: 'Products is deleted',
                 requests: {
                     type: 'GET',
                     url: 'http://localhost:3000/product/',
