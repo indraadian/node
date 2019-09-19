@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const productsRouts = require('./api/routes/products');
 const ordersRouts = require('./api/routes/orders');
+const userRouter = require('./api/routes/user');
 
 mongoose.connect('mongodb+srv://indraa:'+ process.env.MONGO_ATLAS_PW +'@node-rest-shop-dtcc7.mongodb.net/test?retryWrites=true&w=majority',
 {
@@ -17,6 +18,7 @@ mongoose.connect('mongodb+srv://indraa:'+ process.env.MONGO_ATLAS_PW +'@node-res
 mongoose.Promise=global.Promise;
 
 app.use(morgan('dev'));
+app.use('/upload', express.static('upload'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -33,6 +35,8 @@ app.use((req, res, next)=>{
 
 app.use('/products', productsRouts);
 app.use('/orders', ordersRouts);
+app.use('/user', userRouter);
+
 
 app.use((req,res, next) =>{
     const error =new Error('Not Found');
