@@ -32,9 +32,9 @@ exports.orders_get_all = (req, res, next) =>{
         });
 }
 
-//post
+//post5d873e6eb557950d7ccdd902
 exports.orders_create_order = (req, res, next) =>{ 
-    Product.findById(req.body.productsId)
+    Product.findById(req.body.productId)
     .then(product => { 
         if (!product) {
             return res.status(404).json({
